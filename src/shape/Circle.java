@@ -2,12 +2,14 @@ package shape;
 import java.awt.Graphics;
 
 import point.Point;
+import state.CircleState;
+import state.State;
 
 public class Circle implements Shape
 {
     private Point center;
     private double r;
-
+    private final State shapeState = new CircleState();
     public Circle(double x, double y, double r)
     {
         center = new Point(x,y);
@@ -73,4 +75,9 @@ public class Circle implements Shape
         return this;
     }
 
+    @Override
+    public State shapeState()
+    {
+        return this.shapeState;
+    }
 }

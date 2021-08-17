@@ -1,6 +1,8 @@
 package shape;
 
 import point.Point;
+import state.RectangleState;
+import state.State;
 
 import java.awt.*;
 
@@ -9,6 +11,7 @@ public class Rectangle implements Shape
 {
     private Point center;
     private double w, h;
+    private final State shapeState = new RectangleState();
 
     public Rectangle(double x, double y, double w,  double h)
     {
@@ -75,5 +78,11 @@ public class Rectangle implements Shape
     public Shape peel()
     {
         return this;
+    }
+
+    @Override
+    public State shapeState()
+    {
+        return this.shapeState;
     }
 }

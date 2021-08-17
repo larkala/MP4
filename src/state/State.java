@@ -19,6 +19,8 @@ public abstract class State {
         return null;
     }
 
+    public void fillShape(Graphics g, Shape shape) {};
+
     public void setState(State newState)
     {
         this.state = newState;

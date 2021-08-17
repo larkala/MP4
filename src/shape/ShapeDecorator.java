@@ -6,20 +6,19 @@ import state.State;
 public class ShapeDecorator implements Shape
 {
     private Shape decoratee;
-    private Shape shapeState;
-    public ShapeDecorator(Shape decoratee, State shapeState)
+    private final State shapeState;
+    public ShapeDecorator(Shape decoratee)
     {
         this.decoratee = decoratee;
+        this.shapeState = decoratee.shapeState();
     }
+
     @Override
     public void draw(Graphics g)
     {
         decoratee.draw(g);
-        Point position = decoratee.getPosition();
-        int x = (int)(position.getX()-decoratee.getWidth()/2.0+0.5);
-        int y = (int)(position.getY()-decoratee.getHeight()/2.0+0.5);
-        g.fillOval(x,y,(int)(decoratee.getWidth()+0.5),(int)(decoratee.getHeight()+0.5));
-    }
+        shapeState.fillShape(g, decoratee);
+        }
     @Override
     public Point getPosition()
     {
@@ -59,5 +58,10 @@ public class ShapeDecorator implements Shape
     public Shape peel()
     {
         return decoratee;
+    }
+    @Override
+    public State shapeState()
+    {
+        return this.shapeState;
     }
 }

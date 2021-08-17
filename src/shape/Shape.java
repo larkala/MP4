@@ -2,6 +2,7 @@ package shape;
 import java.awt.Graphics;
 
 import point.Point;
+import state.State;
 
 public interface Shape
 {
@@ -14,4 +15,5 @@ public interface Shape
     public void move(double dx, double dy);
     public void resizeTo(Point point);
     public Shape peel();
+    public State shapeState();
 }
