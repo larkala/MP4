@@ -1,16 +1,16 @@
 package state;
 
 import point.Point;
-import shape.Rectangle;
+import shape.Square;
 import shape.Shape;
 
 import java.awt.*;
 
-public class RectangleState extends State{
+public class SquareState extends State{
     @Override
     public Shape drawShape(Point point)
     {
-        return new Rectangle(point, Math.random() * 100.0, Math.random() * 100.0);
+        return new Square(point, Math.random() * 100.0);
     }
 
     @Override

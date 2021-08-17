@@ -4,7 +4,6 @@ import point.Point;
 import state.State;
 
 import java.awt.*;
-import java.awt.geom.Path2D;
 
 public class CrossDecorator implements Shape{
 

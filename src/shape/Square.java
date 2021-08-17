@@ -1,34 +1,33 @@
 package shape;
 
 import point.Point;
-import state.RectangleState;
+import state.SquareState;
 import state.State;
 
 import java.awt.*;
 
 
-public class Rectangle implements Shape
+public class Square implements Shape
 {
     private Point center;
-    private double w, h;
-    private final State shapeState = new RectangleState();
+    private double w;
+    private final State shapeState = new SquareState();
 
-    public Rectangle(double x, double y, double w,  double h)
+    public Square(double x, double y, double w)
     {
         center = new Point(x,y);
         this.w = w;
-        this.h = h;
     }
 
-    public Rectangle(Point point, double w, double h)
+    public Square(Point point, double w)
     {
-        this(point.getX(), point.getY(), w, h);
+        this(point.getX(), point.getY(), w);
     }
 
     @Override
     public void draw(Graphics g)
     {
-        g.drawRect((int)(0.5+center.getX()-(w/2)), (int)(0.5+center.getY()-(h/2)), (int)(0.5+w), (int)(0.5+h));
+        g.drawRect((int)(0.5+center.getX()-(w/2)), (int)(0.5+center.getY()-(w/2)), (int)(0.5+w), (int)(0.5+w));
     }
 
     @Override
@@ -46,13 +45,13 @@ public class Rectangle implements Shape
     @Override
     public double getHeight()
     {
-        return h;
+        return w;
     }
 
     @Override
     public boolean intersects(Point point)
     {
-        return center.distanceTo(point) < h || center.distanceTo(point) < w;
+        return center.distanceTo(point) < w/2;
     }
 
     @Override
@@ -70,8 +69,7 @@ public class Rectangle implements Shape
     @Override
     public void resizeTo(Point point)
     {
-        Point newPoint = new Point(point.getX()/2, point.getY()/2);
-        h = w = center.distanceTo(newPoint);
+        w = center.distanceTo(point);
     }
 
     @Override

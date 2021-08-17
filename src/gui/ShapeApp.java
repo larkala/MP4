@@ -39,10 +39,10 @@ public class ShapeApp extends JFrame
                 shapeContainer.setState(new InsertState(shapeState));
             }
         });
-        createMenuItem(menu1, "Rectangle", new ActionListener() {
+        createMenuItem(menu1, "Square", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shapeState = new RectangleState();
+                shapeState = new SquareState();
                 shapeContainer.setState(new InsertState(shapeState));
             }
         });
