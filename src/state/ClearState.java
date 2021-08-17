@@ -4,7 +4,7 @@ import gui.ShapeContainer;
 import point.Point;
 import shape.Shape;
 
-public class UnmarkedState extends State{
+public class ClearState extends State{
     @Override
     public void pointerDown(Point point, ShapeContainer sc) {
         sc.select(point);

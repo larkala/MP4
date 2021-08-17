@@ -3,11 +3,11 @@ import java.awt.Graphics;
 import point.Point;
 import state.State;
 
-public class ShapeDecorator implements Shape
+public class FillDecorator implements Shape
 {
     private Shape decoratee;
     private final State shapeState;
-    public ShapeDecorator(Shape decoratee)
+    public FillDecorator(Shape decoratee)
     {
         this.decoratee = decoratee;
         this.shapeState = decoratee.shapeState();
