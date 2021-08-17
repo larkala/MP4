@@ -25,11 +25,11 @@ public class CrossDecorator implements Shape{
         int x = (int)position.getX();
         int y = (int)position.getY();
 
-        int wr = (int) decoratee.getWidth()/2;
+        int vr = (int) decoratee.getWidth()/2;
         int hr = (int) decoratee. getHeight()/2;
 
-        int vertx1 = x-wr;
-        int vertx2 = x-wr;
+        int vertx1 = x-vr;
+        int vertx2 = x+vr;
 
         int hory1 = y-hr;
         int hory2 = y+hr;

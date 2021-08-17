@@ -26,23 +26,20 @@ public class ShapeApp extends JFrame
 
     public void createMenu()
     {
-        JMenu menu1 = new JMenu("Modes");
-        JMenu menu2 = new JMenu("Shapes");
-        JMenu menu3 = new JMenu("Decorate");
 
-        createMenuItem(menu1, "Insert", e -> shapeContainer.setState(new InsertState(shapeState)));
-        createMenuItem(menu1, "Move", e -> shapeContainer.setState(new MoveState()));
-        createMenuItem(menu1, "Delete", e -> shapeContainer.setState(new DeleteState()));
-        createMenuItem(menu1, "Resize", e -> shapeContainer.setState(new ResizeState()));
+        JMenu menu1 = new JMenu("Insert Shape");
+        JMenu menu2 = new JMenu("Decorate");
+        JMenu menu3 = new JMenu("Modes");
 
-        createMenuItem(menu2, "Circle", new ActionListener() {
+
+        createMenuItem(menu1, "Circle", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 shapeState = new CircleState();
                 shapeContainer.setState(new InsertState(shapeState));
             }
         });
-        createMenuItem(menu2, "Rectangle", new ActionListener() {
+        createMenuItem(menu1, "Rectangle", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 shapeState = new RectangleState();
@@ -50,11 +47,14 @@ public class ShapeApp extends JFrame
             }
         });
 
-        createMenuItem(menu3, "Fill", e -> shapeContainer.setState(new FillState()));
-        createMenuItem(menu3, "Star", e -> shapeContainer.setState(new StarState()));
-        createMenuItem(menu3, "Cross", e -> shapeContainer.setState(new CrossState()));
-        createMenuItem(menu3, "Clear", e -> shapeContainer.setState(new ClearState()));
+        createMenuItem(menu2, "Fill", e -> shapeContainer.setState(new FillState()));
+        createMenuItem(menu2, "Star", e -> shapeContainer.setState(new StarState()));
+        createMenuItem(menu2, "Cross", e -> shapeContainer.setState(new CrossState()));
+        createMenuItem(menu2, "Clear", e -> shapeContainer.setState(new ClearState()));
 
+        createMenuItem(menu3, "Move", e -> shapeContainer.setState(new MoveState()));
+        createMenuItem(menu3, "Delete", e -> shapeContainer.setState(new DeleteState()));
+        createMenuItem(menu3, "Resize", e -> shapeContainer.setState(new ResizeState()));
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(menu1);
