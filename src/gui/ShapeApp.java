@@ -1,6 +1,7 @@
 package gui;
 import state.*;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
@@ -28,15 +29,27 @@ public class ShapeApp extends JFrame
         JMenu menu1 = new JMenu("Modes");
         JMenu menu2 = new JMenu("Shapes");
 
-        createMenuItem(menu1, "Insert", e -> shapeContainer.setState(new InsertState(new CircleState())));
+        createMenuItem(menu1, "Insert", e -> shapeContainer.setState(new InsertState(shapeState)));
         createMenuItem(menu1, "Move", e -> shapeContainer.setState(new MoveState()));
         createMenuItem(menu1, "Delete", e -> shapeContainer.setState(new DeleteState()));
         createMenuItem(menu1, "Mark", e -> shapeContainer.setState(new MarkedState()));
         createMenuItem(menu1, "Unmark", e -> shapeContainer.setState(new UnmarkedState()));
         createMenuItem(menu1, "Resize", e -> shapeContainer.setState(new ResizeState()));
 
-        createMenuItem(menu2, "Circle", e -> shapeContainer.setState(new InsertState(new CircleState())));
-        createMenuItem(menu2, "Rectangle", e -> shapeContainer.setState(new InsertState(new RectangleState())));
+        createMenuItem(menu2, "Circle", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shapeState = new CircleState();
+                shapeContainer.setState(new InsertState(shapeState));
+            }
+        });
+        createMenuItem(menu2, "Rectangle", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shapeState = new RectangleState();
+                shapeContainer.setState(new InsertState(shapeState));
+            }
+        });
 
 
         JMenuBar menuBar = new JMenuBar();

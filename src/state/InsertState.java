@@ -12,11 +12,6 @@ public class InsertState extends State{
         this.shapeState = shapeState;
     }
 
-    public InsertState()
-    {
-        this(new RectangleState());
-    }
-
     @Override
     public void pointerDown(Point point, ShapeContainer sc) {
         sc.shapes().add(shapeState.drawShape(point));

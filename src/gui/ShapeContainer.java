@@ -8,6 +8,7 @@ import handler.MouseHandler;
 import point.Point;
 import point.Pointable;
 import shape.Shape;
+import state.CircleState;
 import state.InsertState;
 import state.State;
 
@@ -16,7 +17,7 @@ public class ShapeContainer extends JPanel implements Pointable {
     private List<Shape>       shapes           = new LinkedList<Shape>();
 
     private Shape selected;
-    private State state = new InsertState();
+    private State state = new InsertState(new CircleState());
 
     public ShapeContainer()
     {
