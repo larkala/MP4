@@ -1,16 +1,17 @@
-package shape;
+package decorators;
 
 import point.Point;
+import shape.Shape;
 import state.State;
 
 import java.awt.*;
 
-public class CrossDecorator implements Shape{
+public class CrossDecorator implements ShapeDecorator {
 
-    private Shape decoratee;
+    private shape.Shape decoratee;
     private final State shapeState;
 
-    public CrossDecorator(Shape decoratee)
+    public CrossDecorator(shape.Shape decoratee)
     {
         this.decoratee = decoratee;
         this.shapeState = decoratee.shapeState();

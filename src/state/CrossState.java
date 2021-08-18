@@ -2,9 +2,8 @@ package state;
 
 import gui.ShapeContainer;
 import point.Point;
-import shape.CrossDecorator;
+import decorators.CrossDecorator;
 import shape.Shape;
-import shape.StarDecorator;
 
 public class CrossState extends State{
 

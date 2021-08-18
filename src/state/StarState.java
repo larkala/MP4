@@ -3,7 +3,7 @@ package state;
 import gui.ShapeContainer;
 import point.Point;
 import shape.Shape;
-import shape.StarDecorator;
+import decorators.StarDecorator;
 
 public class StarState extends State{
 

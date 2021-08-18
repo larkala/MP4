@@ -1,9 +1,10 @@
-package shape;
+package decorators;
 import java.awt.Graphics;
 import point.Point;
+import shape.Shape;
 import state.State;
 
-public class FillDecorator implements Shape
+public class FillDecorator implements ShapeDecorator
 {
     private Shape decoratee;
     private final State shapeState;

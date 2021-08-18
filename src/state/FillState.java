@@ -3,7 +3,7 @@ package state;
 import gui.ShapeContainer;
 import point.Point;
 import shape.Shape;
-import shape.FillDecorator;
+import decorators.FillDecorator;
 
 public class FillState extends State{
 

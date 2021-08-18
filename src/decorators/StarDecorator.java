@@ -1,4 +1,4 @@
-package shape;
+package decorators;
 
 import point.Point;
 import state.State;
@@ -6,12 +6,12 @@ import state.State;
 import java.awt.*;
 import java.awt.geom.Path2D;
 
-public class StarDecorator implements Shape{
+public class StarDecorator implements ShapeDecorator {
 
-    private Shape decoratee;
+    private shape.Shape decoratee;
     private final State shapeState;
 
-    public StarDecorator(Shape decoratee)
+    public StarDecorator(shape.Shape decoratee)
     {
         this.decoratee = decoratee;
         this.shapeState = decoratee.shapeState();
@@ -115,7 +115,7 @@ public class StarDecorator implements Shape{
         decoratee.resizeTo(point);
     }
     @Override
-    public Shape peel()
+    public shape.Shape peel()
     {
         return decoratee;
     }
